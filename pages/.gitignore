@@ -1,1 +1,9 @@
-# Created by .ignore support plugin (hsz.mobi)
+# build output
+.next
+.idea
+
+# dependencies
+node_modules
+
+# logs
+*.log
