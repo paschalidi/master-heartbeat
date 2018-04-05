@@ -1,50 +1,36 @@
-[![Deploy to now](https://deploy.now.sh/static/button.svg)](https://deploy.now.sh/?repo=https://github.com/zeit/next.js/tree/master/examples/with-apollo)
-# Apollo Example
+# master-heartbeat
+The code challenge for HeartBeat
 
-## Demo
+## Contents
 
-https://next-with-apollo.now.sh
+- [Installation](#installation)
+- [Run](#run)
+- [GitHub Token position](#token)
 
-## How to use
 
-### Using `create-next-app`
+## Installation
+* To manually install the project to your local machine please follow the next steps.
+    ``` sh
+    git clone https://github.com/paschalidi/master-heartbeat.git <your-project-folder>
+    cd <your-project-folder> 
+    npm run install
+    ```
+The above commands will install all the dependencies you need in order to run the project.
 
-Download [`create-next-app`](https://github.com/segmentio/create-next-app) to bootstrap the example:
+In case npm run is not installed in your machine go [here](https://yarnpkg.com/lang/en/docs/install/).
 
-```bash
-npx create-next-app --example with-apollo with-apollo-app
-# or
-yarn create next-app --example with-apollo with-apollo-app
+## Run
+* To run the application for developent purposes 
+    ``` sh
+    npm run dev
+    ```
+* To run the application for production purposes
+    ``` sh
+    npm run start
+
+## Token
+* To change the token and be an Authorised user so you can use Github's API/v4 you need to add your token
+here
 ```
-
-### Download manually
-
-Download the example [or clone the repo](https://github.com/zeit/next.js):
-
-```bash
-curl https://codeload.github.com/zeit/next.js/tar.gz/canary | tar -xz --strip=2 next.js-canary/examples/with-apollo
-cd with-apollo
+<your-project-folder>/lib/initApollo.js#8
 ```
-
-Install it and run:
-
-```bash
-npm install
-npm run dev
-```
-
-Deploy it to the cloud with [now](https://zeit.co/now) ([download](https://zeit.co/download)):
-
-```bash
-now
-```
-
-## The idea behind the example
-
-[Apollo](http://dev.apollodata.com) is a GraphQL client that allows you to easily query the exact data you need from a GraphQL server. In addition to fetching and mutating data, Apollo analyzes your queries and their results to construct a client-side cache of your data, which is kept up to date as further queries and mutations are run, fetching more results from the server.
-
-In this simple example, we integrate Apollo seamlessly with Next by wrapping our *pages* inside a [higher-order component (HOC)](https://facebook.github.io/react/docs/higher-order-components.html). Using the HOC pattern we're able to pass down a central store of query result data created by Apollo into our React component hierarchy defined inside each page of our Next application.
-
-On initial page load, while on the server and inside `getInitialProps`, we invoke the Apollo method,  [`getDataFromTree`](http://dev.apollodata.com/react/server-side-rendering.html#getDataFromTree). This method returns a promise; at the point in which the promise resolves, our Apollo Client store is completely initialized.
-
-This example relies on [graph.cool](https://www.graph.cool) for its GraphQL backend.
